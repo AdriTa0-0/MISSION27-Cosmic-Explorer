@@ -1,0 +1,218 @@
+[
+  {
+    "id": "conv_01",
+    "speakers": ["maya", "ari"],
+    "lines": [
+      { "speaker": "maya", "text": "Commander Ari, solar tracking array on PWR-1 is operating at 94% efficiency." },
+      { "speaker": "ari", "text": "Outstanding work Maya. Keep battery reserves above 80% before dusk." },
+      { "speaker": "maya", "text": "Understood. Micro-meteoroid baffles are aligned and nominal.", "tag": "NASA DATA" }
+    ]
+  },
+  {
+    "id": "conv_02",
+    "speakers": ["leo", "ari"],
+    "lines": [
+      { "speaker": "leo", "text": "Commander, the latest spectrometry pass on the south rim revealed high-Ti ilmenite." },
+      { "speaker": "ari", "text": "That confirms the deep mantle mare volcanism models. Excellent catch, Leo." },
+      { "speaker": "leo", "text": "LRO LOLA altimetry correlates directly with our ground-truth cores.", "tag": "NASA DATA" }
+    ]
+  },
+  {
+    "id": "conv_03",
+    "speakers": ["nova", "ari"],
+    "lines": [
+      { "speaker": "nova", "text": "Commander, GRN-1 moisture recovery loop just hit 98.4% efficiency." },
+      { "speaker": "ari", "text": "How are the dwarf wheat crops holding up under artificial UV cycles?" },
+      { "speaker": "nova", "text": "Biomass yield is up 12%. Fresh greens will be on the mess menu tonight!" }
+    ]
+  },
+  {
+    "id": "conv_04",
+    "speakers": ["maya", "leo"],
+    "lines": [
+      { "speaker": "maya", "text": "Leo, your mass spectrometer drew an extra 400 watts during the last sample bake." },
+      { "speaker": "leo", "text": "Sorry Maya! We had to degas an impact glass spherule to check for trapped argon." },
+      { "speaker": "maya", "text": "Just log it with PWR-1 next time so I don't throttle the airlock heaters." }
+    ]
+  },
+  {
+    "id": "conv_05",
+    "speakers": ["leo", "nova"],
+    "lines": [
+      { "speaker": "leo", "text": "Nova, did you see the Earthrise view over Shackleton rim this morning?" },
+      { "speaker": "nova", "text": "Every single time I look up at that blue marble, it gives me goosebumps." },
+      { "speaker": "leo", "text": "DSCOVR EPIC showed hurricane activity across the western Atlantic today.", "tag": "NASA DATA" }
+    ]
+  },
+  {
+    "id": "conv_06",
+    "speakers": ["maya", "nova"],
+    "lines": [
+      { "speaker": "maya", "text": "Nova, I checked the condenser coils behind the greenhouse water recovery tanks." },
+      { "speaker": "nova", "text": "Did you catch any regolith dust fouling the heat exchangers?" },
+      { "speaker": "maya", "text": "Clean as a whistle. The electrostatic dust filters are doing their job." }
+    ]
+  },
+  {
+    "id": "conv_07",
+    "speakers": ["leo", "ari"],
+    "lines": [
+      { "speaker": "leo", "text": "Ari, the radiation dosimeters out on the ridge clocked 0.03 mSv/hr." },
+      { "speaker": "ari", "text": "Within normal galactic cosmic ray background. Safe for extended EVA.", "tag": "NASA DATA" },
+      { "speaker": "leo", "text": "I'll pack the core drill onto the rover for the afternoon traverse." }
+    ]
+  },
+  {
+    "id": "conv_08",
+    "speakers": ["nova", "maya"],
+    "lines": [
+      { "speaker": "nova", "text": "Maya, did you hear the hab hull pinging earlier? Thermal expansion?" },
+      { "speaker": "maya", "text": "Yes, daytime surface temperatures reach 120°C while shadows drop to -130°C.", "tag": "NASA DATA" },
+      { "speaker": "nova", "text": "The sintered regolith shell absorbs the shock brilliantly." }
+    ]
+  },
+  {
+    "id": "conv_09",
+    "speakers": ["ari", "maya"],
+    "lines": [
+      { "speaker": "ari", "text": "Maya, what is our electrical margin if a solar flare trips the primary array?" },
+      { "speaker": "maya", "text": "Secondary fuel cells will keep life support running for 48 hours straight." },
+      { "speaker": "ari", "text": "Good redundancy. Keep PWR-1 automated circuit breakers on standby." }
+    ]
+  },
+  {
+    "id": "conv_10",
+    "speakers": ["ari", "leo"],
+    "lines": [
+      { "speaker": "ari", "text": "Leo, did the sample return cache in LAB-1 finish gamma ray spectroscopy?" },
+      { "speaker": "leo", "text": "Yes! Anorthosite sample shows 90% calcic plagioclase from the primordial magma ocean.", "tag": "NASA DATA" },
+      { "speaker": "ari", "text": "That is 4.4-billion-year-old lunar history right in our palm." }
+    ]
+  },
+  {
+    "id": "conv_11",
+    "speakers": ["ari", "nova"],
+    "lines": [
+      { "speaker": "ari", "text": "Nova, crew cabin atmospheric pressure is rock steady at 101.3 kPa." },
+      { "speaker": "nova", "text": "Oxygen fraction is 21%, nitrogen balance 78%. Just like home at sea level.", "tag": "NASA DATA" },
+      { "speaker": "ari", "text": "Hab-1 life support systems are in peak condition." }
+    ]
+  },
+  {
+    "id": "conv_12",
+    "speakers": ["maya", "leo"],
+    "lines": [
+      { "speaker": "maya", "text": "Leo, make sure you hose down your suit boots in the airlock grates." },
+      { "speaker": "leo", "text": "Lunar regolith is jagged and abrasive. Apollo astronauts noted the gunpowder smell.", "tag": "NASA DATA" },
+      { "speaker": "maya", "text": "Exactly. Let's keep those abrasive glass shards outside our air filters." }
+    ]
+  },
+  {
+    "id": "conv_13",
+    "speakers": ["nova", "leo"],
+    "lines": [
+      { "speaker": "nova", "text": "Leo, could we extract plant-available nitrates from crater impact breccia?" },
+      { "speaker": "leo", "text": "Regolith simulant studies show micro-nutrients are present with proper pH balancing.", "tag": "NASA DATA" },
+      { "speaker": "nova", "text": "Future lunar agriculture is looking brighter by the sol." }
+    ]
+  },
+  {
+    "id": "conv_14",
+    "speakers": ["maya", "ari"],
+    "lines": [
+      { "speaker": "maya", "text": "Commander, the LRV rover battery in LAB-1 is fully charged to 100%." },
+      { "speaker": "ari", "text": "Tire pressure and suspension check out?" },
+      { "speaker": "maya", "text": "Wire mesh wheels and harmonic drive motors are calibrated and ready to roll." }
+    ]
+  },
+  {
+    "id": "conv_15",
+    "speakers": ["leo", "nova"],
+    "lines": [
+      { "speaker": "leo", "text": "Nova, did you notice the sky brightness? Zero atmospheric scatter." },
+      { "speaker": "nova", "text": "You can see the stars and the Sun at the very exact same moment.", "tag": "NASA DATA" },
+      { "speaker": "leo", "text": "It's the ultimate astronomical observatory location." }
+    ]
+  },
+  {
+    "id": "conv_16",
+    "speakers": ["ari", "maya"],
+    "lines": [
+      { "speaker": "ari", "text": "Maya, how are the power conduits linking PWR-1 to HAB-1 holding up?" },
+      { "speaker": "maya", "text": "Superconducting cables buried under 40 cm of regolith prevent thermal fatigue.", "tag": "NASA DATA" },
+      { "speaker": "ari", "text": "Smart engineering. Surface radiation won't degrade the insulation." }
+    ]
+  },
+  {
+    "id": "conv_17",
+    "speakers": ["leo", "ari"],
+    "lines": [
+      { "speaker": "leo", "text": "Ari, that volcanic orange glass spherule we found is over 3.6 billion years old." },
+      { "speaker": "ari", "text": "Pyroclastic fountaining from deep inside the Moon. Amazing preservation." },
+      { "speaker": "leo", "text": "Without wind or water erosion, lunar samples remain pristine indefinitely.", "tag": "NASA DATA" }
+    ]
+  },
+  {
+    "id": "conv_18",
+    "speakers": ["nova", "ari"],
+    "lines": [
+      { "speaker": "nova", "text": "Commander, water reserves are up to 450 liters across all storage tanks." },
+      { "speaker": "ari", "text": "What is our daily loss rate during EVA airlock cycles?" },
+      { "speaker": "nova", "text": "Under 0.5 liters thanks to the vacuum re-compression recovery pump." }
+    ]
+  },
+  {
+    "id": "conv_19",
+    "speakers": ["maya", "leo"],
+    "lines": [
+      { "speaker": "maya", "text": "Leo, if you need the rover crane for heavy rock samples, give me a heads up." },
+      { "speaker": "leo", "text": "Will do. That troctolite boulder near the southern ridge is too heavy to hoist by hand." },
+      { "speaker": "maya", "text": "1/6th gravity helps, but inertia is still mass. Safety first out on the regolith!" }
+    ]
+  },
+  {
+    "id": "conv_20",
+    "speakers": ["nova", "maya"],
+    "lines": [
+      { "speaker": "nova", "text": "Maya, the lighting schedule in GRN-1 switches to 16 hours active cycle." },
+      { "speaker": "maya", "text": "I routed 3.0 kW continuous dedicated power to your LED grow panels." },
+      { "speaker": "nova", "text": "The radishes and spirulina are thriving. Thanks Maya!" }
+    ]
+  },
+  {
+    "id": "conv_21",
+    "speakers": ["leo", "ari"],
+    "lines": [
+      { "speaker": "leo", "text": "Ari, look at the Earth's terminator line from here. South America is slipping into night." },
+      { "speaker": "ari", "text": "A fragile oasis floating in the endless cosmic black." },
+      { "speaker": "leo", "text": "Overview effect is real. Every astronaut who stood here felt it.", "tag": "NASA DATA" }
+    ]
+  },
+  {
+    "id": "conv_22",
+    "speakers": ["maya", "nova"],
+    "lines": [
+      { "speaker": "maya", "text": "Nova, our comms dish just received telemetry handshake from Houston." },
+      { "speaker": "nova", "text": "1.3 second one-way light delay. Almost real-time communication.", "tag": "NASA DATA" },
+      { "speaker": "maya", "text": "All colony telemetry channels checked green across the board." }
+    ]
+  },
+  {
+    "id": "conv_23",
+    "speakers": ["ari", "nova"],
+    "lines": [
+      { "speaker": "ari", "text": "Nova, how is the crew mental fatigue metric looking on the bio-monitors?" },
+      { "speaker": "nova", "text": "Morale is above 90 across the entire crew. High productivity, steady rest cycles." },
+      { "speaker": "ari", "text": "Let's keep the mission tempo steady and focused." }
+    ]
+  },
+  {
+    "id": "conv_24",
+    "speakers": ["leo", "maya"],
+    "lines": [
+      { "speaker": "leo", "text": "Maya, do you think we'll find trapped water ice in the permanently shadowed craters?" },
+      { "speaker": "maya", "text": "NASA LCROSS proved billions of kilograms of water ice reside in Shackleton.", "tag": "NASA DATA" },
+      { "speaker": "leo", "text": "Once we tap that, we have rocket fuel and oxygen for the entire solar system." }
+    ]
+  }
+]

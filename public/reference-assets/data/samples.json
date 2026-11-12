@@ -1,0 +1,57 @@
+[
+ {
+  "id": "sample_1",
+  "image": "/assets/samples/sample_1.jpg",
+  "alt": "Gray, rough lunar rock on a white table with a small cube labeled W and a ruler",
+  "title": "Gray Lunar Rock",
+  "sampleId": "10009,0",
+  "type": "Lunar rock (Apollo-era sample)",
+  "mission": "Apollo 11, 1969",
+  "text": "A rough gray rock brought back from the Moon. The ID number on the label lets scientists track every sample in the lab. The small cube and ruler are used to show size and color.",
+  "sourceTag": "NASA DATA"
+ },
+ {
+  "id": "sample_2",
+  "image": "/assets/samples/sample_2.jpg",
+  "alt": "Black and white photo of a dark lunar rock inside a sealed laboratory chamber, image mirrored",
+  "title": "Rock in the Sample Lab",
+  "sampleId": "10017 (label partly readable)",
+  "type": "Lunar rock (Apollo-era sample)",
+  "mission": "Apollo 11, 1969",
+  "text": "Lunar rocks were studied inside sealed chambers so Moon material would not be contaminated by Earth air. This photo is mirrored, which is why the label looks reversed.",
+  "sourceTag": "NASA DATA"
+ },
+ {
+  "id": "sample_3",
+  "image": "/assets/samples/sample_3.jpg",
+  "alt": "Black and white photo of bootprints and a flag on the lunar surface next to a landing module leg",
+  "title": "Footprints in the Regolith",
+  "sampleId": "Surface photo",
+  "type": "Regolith and bootprints",
+  "mission": "Apollo 11, 1969",
+  "text": "The Moon has no wind or rain, so footprints in the dust can last for a very long time. Walking here taught engineers how lunar soil behaves under boots and wheels.",
+  "sourceTag": "NASA DATA"
+ },
+ {
+  "id": "sample_4",
+  "image": "/assets/samples/sample_4.jpg",
+  "alt": "Black and white photo of a pile of fine dark lunar soil on a white surface",
+  "title": "Lunar Soil (Regolith)",
+  "sampleId": "Soil sample",
+  "type": "Fine regolith",
+  "mission": "Apollo-era sample",
+  "text": "Regolith is the loose, powdery dust and broken rock that covers the Moon. It is sharp and sticky, so it can wear down suits and clog equipment. Habitats and rovers must be designed to handle it.",
+  "sourceTag": "NASA DATA"
+ },
+ {
+  "id": "sample_5",
+  "image": "/assets/samples/sample_5.jpg",
+  "alt": "Small rounded lunar rock next to a ruler and a cube labeled Si, with the number 10026,10",
+  "title": "Small Lunar Rock",
+  "sampleId": "10026,10",
+  "type": "Lunar rock (Apollo-era sample)",
+  "mission": "Apollo 11, 1969",
+  "text": "A small rock photographed beside a millimeter ruler and a color cube so its size can be measured. Even a rock this small can tell scientists about the Moon's history.",
+  "sourceTag": "NASA DATA"
+ }
+]

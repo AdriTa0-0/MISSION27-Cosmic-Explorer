@@ -1,0 +1,87 @@
+{
+  "source": "https://pds-ppi.igpp.ucla.edu/data/LRO-L-CRAT-3-CDR-CALIBRATED-V1.0/DATA/2009/2009183/",
+  "date": "2009-07-02",
+  "product": "CRAT_L1_PRI_2009183_V01.TAB",
+  "events": [
+    {
+      "index": 0,
+      "spacecraftSeconds": 268185600.68,
+      "amplitudes": [
+        1,
+        0,
+        1,
+        21,
+        0,
+        0
+      ],
+      "energyKev": [
+        180.82,
+        50.0,
+        230.98,
+        528.26,
+        119.1,
+        46.6
+      ]
+    },
+    {
+      "index": 2,
+      "spacecraftSeconds": 268185600.68,
+      "amplitudes": [
+        3,
+        63,
+        0,
+        0,
+        0,
+        0
+      ],
+      "energyKev": [
+        332.25,
+        1422.1,
+        152.8,
+        74.7,
+        119.1,
+        46.6
+      ]
+    },
+    {
+      "index": 6,
+      "spacecraftSeconds": 268185600.68,
+      "amplitudes": [
+        0,
+        0,
+        3,
+        244,
+        0,
+        0
+      ],
+      "energyKev": [
+        105.1,
+        50.0,
+        387.34,
+        5344.6,
+        119.1,
+        46.6
+      ]
+    },
+    {
+      "index": 17,
+      "spacecraftSeconds": 268185600.68,
+      "amplitudes": [
+        2,
+        1,
+        2,
+        0,
+        1,
+        76
+      ],
+      "energyKev": [
+        256.54,
+        71.779,
+        309.16,
+        74.7,
+        194.89,
+        1708.3
+      ]
+    }
+  ]
+}

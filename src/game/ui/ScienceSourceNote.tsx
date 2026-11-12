@@ -1,0 +1,10 @@
+import type {ActivityKind} from '../store';
+const sources:Partial<Record<ActivityKind,{name:string;text:string;url:string}>>={
+ leak:{name:'NASA ECLSS',text:'Astronauts need clean air and recycled water. NASA studies the systems that keep their home in space safe.',url:'https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/'},
+ power:{name:'NASA lunar environment',text:'Sunlight and shadows affect solar power. Our Moon lighting is a simplified model inspired by NASA science.',url:'https://www.nasa.gov/reference/moonbase-environment/'},
+ greenhouse:{name:'NASA OSDR · OSD-269',text:'Scientists have grown plants in space! This activity uses lighting settings from a NASA plant experiment.',url:'https://osdr.nasa.gov/bio/repo/data/studies/OSD-269'},
+ radiation:{name:'NASA CCMC DONKI',text:'The Sun can send energetic particles into space. This activity replays a recorded event so you can practise protecting the crew.',url:'https://ccmc.gsfc.nasa.gov/tools/DONKI/'},
+ eva:{name:'NASA EMU and EVA archive',text:'Real spacesuits keep astronauts alive outside their spacecraft. Inspect the NASA suit model, then try our simplified safety checks.',url:'https://data.nasa.gov/dataset/nasa-3d-models-extravehicular-mobility-unit'},
+ terrainSurvey:{name:'NASA LRO · LOLA and LEND',text:'LOLA measures the Moon’s height. LEND looks for clues to hydrogen. Use their science to explore promising places.',url:'https://science.nasa.gov/mission/lro/science-and-data/'},
+};
+export function ScienceSourceNote({kind}:{kind:ActivityKind}){const item=sources[kind];if(!item)return null;return <aside className="my-3 rounded-xl border border-secondary/40 bg-secondary/10 p-3 text-sm"><p className="font-bold text-secondary">🔎 Real NASA science · {item.name}</p><p className="mt-1">{item.text}</p><a className="mt-2 inline-block underline text-secondary" href={item.url} target="_blank" rel="noreferrer">Explore the source ↗</a><p className="mt-1 text-xs text-muted-foreground">Game controls and scores are simplified for learning.</p></aside>;}

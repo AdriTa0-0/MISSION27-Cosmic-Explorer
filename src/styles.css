@@ -1,0 +1,209 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Fredoka", ui-rounded, system-ui, sans-serif;
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --font-logo: "Exo 2", "Fredoka", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-warning: var(--warning);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.15 0.03 262);
+  --foreground: oklch(0.96 0.012 85);
+  --card: oklch(0.21 0.035 262);
+  --card-foreground: oklch(0.96 0.012 85);
+  --popover: oklch(0.21 0.035 262);
+  --popover-foreground: oklch(0.96 0.012 85);
+  --primary: oklch(0.74 0.17 52);
+  --primary-foreground: oklch(0.18 0.03 262);
+  --secondary: oklch(0.83 0.11 178);
+  --secondary-foreground: oklch(0.18 0.03 262);
+  --muted: oklch(0.28 0.03 262);
+  --muted-foreground: oklch(0.74 0.03 250);
+  --accent: oklch(0.33 0.05 262);
+  --accent-foreground: oklch(0.96 0.012 85);
+  --destructive: oklch(0.66 0.21 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --warning: oklch(0.84 0.15 85);
+  --success: oklch(0.8 0.16 150);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.74 0.17 52);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body { background-color: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); overflow: hidden; }
+  h1, h2, h3, h4 { font-family: var(--font-display); }
+}
+
+@utility panel {
+  background-color: color-mix(in oklab, var(--card) 88%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 30px -10px oklch(0 0 0 / 60%);
+}
+
+@keyframes floaty { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-6px) } }
+@keyframes pulse-red { 0%,100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--destructive) 60%, transparent) } 50% { box-shadow: 0 0 0 10px transparent } }
+@keyframes shake { 0%,100% { transform: translateX(0) } 25% { transform: translateX(-6px) } 75% { transform: translateX(6px) } }
+.anim-float { animation: floaty 3s ease-in-out infinite; }
+.anim-alert { animation: pulse-red 1.4s ease-in-out infinite; }
+.anim-shake { animation: shake 0.3s ease-in-out 2; }
+
+@keyframes fade-up { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: none } }
+@keyframes light-sweep { 0%, 70% { background-position: -150% 0 } 100% { background-position: 250% 0 } }
+@keyframes dot-pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.35 } }
+@keyframes screen-in { from { opacity: 0; filter: blur(4px) } to { opacity: 1; filter: none } }
+.anim-fade-up { animation: fade-up 0.7s cubic-bezier(.2,.8,.2,1) both; }
+.anim-dot { animation: dot-pulse 1.8s ease-in-out infinite; }
+.anim-screen-in { animation: screen-in 0.45s ease-out both; }
+.logo-sweep {
+  background-image: linear-gradient(100deg, transparent 40%, color-mix(in oklab, var(--foreground) 55%, transparent) 50%, transparent 60%);
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: light-sweep 6s ease-in-out infinite;
+}
+.logo-glow { text-shadow: 0 1px 0 color-mix(in oklab, var(--foreground) 30%, transparent), 0 6px 18px oklch(0 0 0 / 55%), 0 0 28px color-mix(in oklab, var(--primary) 10%, transparent); }
+.reduce-motion *, .reduce-motion *::before, .reduce-motion *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+@media (prefers-reduced-motion: reduce) { .anim-float, .anim-dot, .logo-sweep { animation: none; } }
+
+/* Touch controls also work on large tablets and touch-enabled laptops. */
+.touch-controls {display:none;}
+@media (any-pointer:coarse) {
+  .touch-controls {display:flex;position:absolute;inset:auto 0 max(12px,env(safe-area-inset-bottom));justify-content:space-between;align-items:end;padding:0 16px;pointer-events:none;z-index:20;}
+  .touch-controls button {pointer-events:auto;touch-action:none;user-select:none;width:48px;height:48px;border:1px solid #5ad6c480;border-radius:14px;background:#101b30dc;color:white;font-weight:700;}
+  .touch-controls button:active {background:#327b70;}
+  .touch-pad {display:grid;grid-template:repeat(2,48px)/repeat(3,48px);gap:5px;}
+  .touch-run {display:flex;flex-direction:column;align-items:end;gap:8px;}
+  .touch-run span {color:white;font-size:11px;text-shadow:0 1px 3px black;}
+  .game-world .game-prompts {bottom:132px;position:absolute;left:0;right:0;}
+  .game-world .game-prompts button {max-width:95vw;font-size:12px;padding:8px 12px;}
+}
+@media(max-width:767px) {
+  .mission-top {gap:6px;}
+  .mission-top > .panel {padding:8px;}
+  .mission-top > div:last-child {min-width:0;}
+  .mission-top > div:last-child > div:first-child {flex-wrap:wrap;justify-content:flex-end;gap:4px;}
+  .mission-top button {font-size:10px;padding:6px 8px;}
+  .mission-objectives {top:185px;width:min(56vw,230px);max-height:25vh;overflow:auto;pointer-events:auto;}
+  .mission-objectives .panel {padding:8px;}
+  .mission-objectives .text-sm {font-size:11px;}
+  .mission-alert {top:185px;right:8px;left:auto;transform:none;width:41vw;max-height:25vh;overflow:auto;pointer-events:auto;}
+  .mission-alert > div {padding:8px;}
+  .mission-alert .text-xl {font-size:14px;}
+  .mission-alert .text-sm {font-size:11px;}
+  .training-summary {max-width:52vw;padding:8px;max-height:30vh;overflow:auto;pointer-events:auto;}
+  .training-summary .text-sm {font-size:11px;}
+}
+@media(any-pointer:coarse) and (max-height:500px) {
+  .mission-objectives {top:100px;max-height:27vh;width:210px;}
+  .mission-alert {top:100px;width:40vw;left:auto;right:12px;transform:none;max-height:27vh;overflow:auto;}
+  .game-world .game-prompts {left:175px;right:80px;bottom:12px;}
+}
+
+@media(max-height:600px) {
+  .home-main {justify-content:flex-start;overflow-y:auto;pointer-events:auto;padding-top:65px;padding-bottom:65px;}
+}
+
+/* Phone HUD: only two compact rows while exploring. Details are opt-in. */
+.compact-world .desktop-hud {display:none!important;}
+.mobile-hud {position:absolute;top:max(8px,env(safe-area-inset-top));left:max(8px,env(safe-area-inset-left));right:max(8px,env(safe-area-inset-right));pointer-events:auto;}
+.mobile-bar {display:flex;align-items:center;gap:6px;background:#091223e6;border:1px solid #ffffff24;border-radius:12px;padding:2px 8px;font-size:12px;}
+.mobile-bar > span {margin-right:auto;white-space:nowrap;}
+.mobile-bar button {min-height:44px;min-width:44px;padding:0 8px;}
+.mobile-target {display:block;margin-top:5px;max-width:100%;padding:6px 10px;border-radius:8px;background:#091223c9;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left;}
+.compact-world .panel {backdrop-filter:none;}
+.compact-world .anim-float,.compact-world .anim-alert {animation:none;}
+.compact-world .game-prompts {bottom:130px;left:0;right:0;gap:4px;}
+.compact-world .game-prompts button {font-size:12px;min-height:44px;max-width:90vw;padding:8px 12px;}
+.compact-world .mission-toast {max-width:85vw;font-size:11px;padding:6px 10px;max-height:48px;overflow:auto;}
+.compact-world .mission-dialogue {bottom:12px;max-height:65dvh;overflow:auto;}
+.compact-world .mission-dialogue .text-lg {font-size:15px;}
+.compact-world .touch-run span {display:none;}
+@media (max-height:500px) {
+ .compact-world .game-prompts {left:180px;right:82px;bottom:12px;padding:0 4px;}
+ .compact-world .game-prompts button {font-size:11px;}
+ .compact-world .mobile-hud {right:8px;}
+ .compact-world .mobile-target {max-width:65vw;}
+}
+
+/* Field tools scale with the visible viewport, including phone browser chrome. */
+html,body,#root {width:100%;min-width:0;overflow-x:hidden;overscroll-behavior:none;}
+.game-world {height:100dvh;max-width:100vw;overflow:hidden;}
+.camera-controls {position:absolute;right:max(12px,env(safe-area-inset-right));top:180px;z-index:21;max-width:230px;}
+.camera-controls button,.rover-map>button,.science-modal button,.earth-camera button {min-height:44px;border:1px solid #5ad6c460;border-radius:8px;padding:7px 12px;background:#0b192deb;color:#e6f4ff;}
+.camera-options {background:#0b192df5;padding:10px;border-radius:10px;display:grid;gap:8px;font-size:12px;}
+.camera-options label {display:grid;gap:4px;}
+.camera-options input {width:100%;min-height:30px;}
+.rover-stack{position:absolute;right:max(12px,env(safe-area-inset-right));top:235px;z-index:20;width:210px;display:flex;flex-direction:column;align-items:stretch;gap:10px;max-height:calc(100dvh - 235px - 110px);pointer-events:none;}
+.rover-stack>*{pointer-events:auto;}
+.rover-map {position:relative;width:100%;min-height:0;flex:0 1 auto;overflow:auto;border-radius:12px;background:#091525f5;border:1px solid #5ad6c440;}
+.rover-map>button{width:100%;text-align:left;}
+.rover-dial{flex:0 0 auto;border-radius:12px;border:1px solid #22d3ee80;background:#020817f2;color:#e6f4ff;box-shadow:0 8px 24px #0008;}
+.rover-dial-head{display:flex;width:100%;align-items:center;gap:6px;min-height:44px;padding:6px 10px;font-size:13px;text-align:left;}
+.rover-dial-head>span:first-child{flex:1;}
+.rover-dial-tip{font-size:11px;line-height:1.3;color:#cbd5e1;margin-top:2px;}
+.rover-map svg{width:100%;display:block;}
+.rover-map p{font-size:10px;padding:3px 8px;}
+.science-modal{position:fixed;inset:0;z-index:65;background:#030a16e8;display:flex;align-items:center;justify-content:center;padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom));}
+.science-modal section{width:min(100%,720px);max-height:94dvh;overflow:auto;background:#101d2d;border:1px solid #5ad6c450;border-radius:16px;padding:18px;display:grid;gap:12px;}
+.science-modal header,.science-modal footer{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.science-modal h2{font-size:20px;font-weight:700;}.science-modal h3{font-size:25px;font-weight:700;}
+.science-modal img{width:100%;max-height:40dvh;object-fit:contain;background:#080e15;border-radius:8px;}
+.earth-camera{position:fixed;inset:0;z-index:45;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none;}
+.camera-aim{position:absolute;inset:0;pointer-events:auto;touch-action:none;}
+.earth-camera header,.earth-camera footer{position:relative;z-index:2;pointer-events:auto;background:#07111ee8;padding:12px max(12px,env(safe-area-inset-right)) 12px max(12px,env(safe-area-inset-left));}
+.earth-camera header{display:flex;align-items:center;justify-content:space-between;padding-top:max(8px,env(safe-area-inset-top));}
+.earth-camera footer{padding-bottom:max(8px,env(safe-area-inset-bottom));font-size:12px;}
+.photo-settings{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0;}.photo-settings label{display:grid;flex:1;min-width:100px;max-width:200px;}.photo-settings input{width:100%;min-height:26px;}
+.photo-reticle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:150px;height:150px;border:1px solid #eeeeee88;display:flex;align-items:center;justify-content:center;color:white;}
+.photo-reticle span{font-size:28px;}.photo-reticle small{position:absolute;top:100%;white-space:nowrap;}.photo-reticle.aligned{border-color:#5ad6c4;color:#5ad6c4;}
+.photo-preview{position:absolute;inset:60px 0 180px;width:100%;height:calc(100% - 240px);object-fit:contain;background:#000b;}
+.compact-world .camera-controls{top:100px;right:8px;}
+.compact-world .rover-stack{top:150px;right:8px;width:170px;max-height:calc(100dvh - 150px - 200px);gap:8px;}
+.compact-world .game-prompts .panel{max-height:72px;overflow:auto;}
+.compact-world .lg\:block{display:none!important;}
+@media(max-width:380px){.mobile-bar{gap:0;padding:2px 4px;font-size:11px;}.mobile-bar button{padding:0 5px;}.touch-controls{padding:0 8px;}}
+@media(max-height:500px){.compact-world .camera-controls{top:85px;}.compact-world .rover-stack{top:135px;width:170px;max-height:calc(100dvh - 135px - 90px);}.compact-world .rover-dial-tip{display:none;}.photo-reticle{width:90px;height:90px;top:43%;}.earth-camera footer{font-size:10px;padding-top:4px;padding-bottom:4px;}.earth-camera header{font-size:11px;padding-top:4px;padding-bottom:4px;}.photo-settings{margin:2px 0;gap:5px;}.earth-camera small{display:none;}.photo-reticle small{display:block;}.camera-options{max-height:45dvh;overflow:auto;}}
+/* Large, clearly labelled driving buttons for younger explorers. */
+.touch-pad button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;}
+.touch-pad small{font-size:9px;line-height:1;font-weight:800;}
+.touch-controls button[data-pressed="true"]{background:#247c72;box-shadow:0 0 0 3px #8df0d580;transform:scale(.96);}
+@media(any-pointer:coarse){.touch-controls button{width:54px;height:54px;}.touch-pad{grid-template:repeat(2,54px)/repeat(3,54px);gap:5px;}.compact-world .game-prompts{bottom:144px;}}
+@media(any-pointer:coarse) and (max-height:500px){.compact-world .game-prompts{left:188px;right:80px;bottom:12px;}}

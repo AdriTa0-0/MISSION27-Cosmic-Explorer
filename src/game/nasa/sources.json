@@ -1,0 +1,138 @@
+[
+  {
+    "name": "LRO LOLA",
+    "links": [
+      {
+        "label": "LRO LOLA",
+        "url": "https://science.nasa.gov/mission/lro/data-products/"
+      }
+    ],
+    "where": "Start Mission, then visit Shackleton Survey Point northwest of the outpost",
+    "effect": "Two processed Shackleton elevation tiles shape the terrain. The field scan reads elevation and estimates slope from the 5 m source grid. Grades affect walking and rover speed.",
+    "kind": "Archived data / asset"
+  },
+  {
+    "name": "NASA DONKI + NOAA SWPC report 132",
+    "links": [
+      {
+        "label": "NASA DONKI",
+        "url": "https://kauai.ccmc.gsfc.nasa.gov/DONKI/view/SEP/30717/1"
+      },
+      {
+        "label": "NOAA SWPC report 132",
+        "url": "https://www.spaceweatherlive.com/en/archive/2024/05/11/rsga.html"
+      }
+    ],
+    "where": "Command Module during the solar particle alert at H15:30, after earlier alerts are cleared",
+    "effect": "The May 11, 2024 STEREO-A event and linked X5.8 flare drive the replay. The separately recorded GOES proton peak of 116 pfu above 10 MeV scales the simulated safety penalty. Sending crew to shelter reduces the exposure index.",
+    "kind": "Archived data / asset"
+  },
+  {
+    "name": "LRO CRaTER calibrated energy",
+    "links": [
+      {
+        "label": "LRO CRaTER calibrated energy",
+        "url": "https://pds-ppi.igpp.ucla.edu/data/LRO-L-CRAT-3-CDR-CALIBRATED-V1.0/DATA/2009/2009183/"
+      }
+    ],
+    "where": "Expand **Inspect CRaTER detector replay** during the radiation activity",
+    "effect": "Step through four archive rows from July 2, 2009 and identify the detector with the highest recorded energy. Channels with zero pulse amplitude are displayed as \u201cNo pulse.\u201d The readings are detector energy in keV from a separate observation date.",
+    "kind": "Archived data / asset"
+  },
+  {
+    "name": "Lunar south pole environment",
+    "links": [
+      {
+        "label": "Lunar south pole environment",
+        "url": "https://www.nasa.gov/reference/moonbase-environment/"
+      }
+    ],
+    "where": "Power Station, including the power failure activity",
+    "effect": "A simulated low Sun is compared with the horizon computed from the terrain. Direct illumination changes scene lighting, reserve gain and the load-planning budget.",
+    "kind": "Model informed by NASA references"
+  },
+  {
+    "name": "ECLSS water recovery demonstration",
+    "links": [
+      {
+        "label": "ECLSS water recovery demonstration",
+        "url": "https://www.nasa.gov/missions/station/iss-research/nasa-achieves-water-recovery-milestone-on-international-space-station/"
+      }
+    ],
+    "where": "Habitat panel and Water meter",
+    "effect": "The ISS 98% demonstration value sets the game\u2019s recovery fraction. Low base power stops recycling and the water reserve falls faster.",
+    "kind": "Model informed by NASA references"
+  },
+  {
+    "name": "NASA OSDR OSD-269",
+    "links": [
+      {
+        "label": "NASA OSDR OSD-269",
+        "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-269"
+      }
+    ],
+    "where": "Greenhouse during the crop stress alert at H07:00",
+    "effect": "Restore red romaine lighting to approximately 200 \u00b5mol/m\u00b2/s. The light panel displays the experiment\u2019s 12:3:1 red, blue and green channel ratio. Water and nutrient ranges are game parameters.",
+    "kind": "Model informed by NASA references"
+  },
+  {
+    "name": "LRO LEND study",
+    "links": [
+      {
+        "label": "LRO LEND study",
+        "url": "https://ntrs.nasa.gov/api/citations/20140005994/downloads/20140005994.pdf"
+      }
+    ],
+    "where": "Second step at Shackleton Survey Point",
+    "effect": "Compare the published ranges for neutron suppression at Shoemaker and Cabeus to choose a follow-up hydrogen survey target.",
+    "kind": "Archived data / asset"
+  },
+  {
+    "name": "NASA EMU 3D model",
+    "links": [
+      {
+        "label": "NASA EMU 3D model",
+        "url": "https://science.nasa.gov/3d-resources/extravehicular-mobility-unit/"
+      }
+    ],
+    "where": "Airlock suit check",
+    "effect": "Rotate NASA/Michael D. Carbajal\u2019s EMU model while checking oxygen, cooling and battery. The model and decoder ship with the game.",
+    "kind": "Archived data / asset"
+  },
+  {
+    "name": "NASA EVA database, record 32",
+    "links": [
+      {
+        "label": "NASA EVA database, record 32",
+        "url": "https://data.nasa.gov/dataset/extra-vehicular-activity-eva-us-and-russia"
+      }
+    ],
+    "where": "Airlock battery selection",
+    "effect": "The first Apollo 17 EVA\u2019s 7 h 12 min is the benchmark used to calculate the game's illustrative battery runtimes for a 390-minute sortie.",
+    "kind": "Model informed by NASA references"
+  },
+  {
+    "name": "JPL Lunar Surface Operations Simulator",
+    "links": [
+      {
+        "label": "JPL Lunar Surface Operations Simulator",
+        "url": "https://robotics.jpl.nasa.gov/what-we-do/research-tasks/lunar-surface-operations-simulator-lsos/"
+      }
+    ],
+    "where": "Walk or drive across grades and check base power",
+    "effect": "The coupling between terrain, rover travel and base power follows the operations described by LSOS. The code and operating parameters are MISSION27\u2019s simulation.",
+    "kind": "Design reference"
+  },
+  {
+    "name": "NASA DSCOVR EPIC",
+    "links": [
+      {
+        "label": "NASA DSCOVR EPIC",
+        "url": "https://epic.gsfc.nasa.gov/about/api"
+      }
+    ],
+    "where": "Earthrise Ridge, northeast of the outpost",
+    "effect": "The field camera renders an archived DSCOVR EPIC Earth image in the simulated lunar sky. Aim, focus, adjust exposure and capture the scene; the source frame and captured picture are saved with the mission.",
+    "kind": "Archived data / asset"
+  }
+]
