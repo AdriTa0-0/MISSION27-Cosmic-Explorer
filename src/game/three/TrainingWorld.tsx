@@ -1,7 +1,7 @@
 import { moveWithCollisions, type Obstacle } from "../collision";
 import { useFrame, useThree } from "@react-three/fiber";
 import { Environment, Lightformer, Html } from "@react-three/drei";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { pressed } from "../input";
 import { audio } from "../audio";
@@ -9,14 +9,15 @@ import { useGame, type ActivityKind } from "../store";
 import { Astronaut, type AstroMotion } from "./Astronaut";
 import { floorTexture } from "./textures";
 
-export const TRAINING_STATIONS: { kind: ActivityKind; name: string; color: string; x: number; z: number }[] = [
-  { kind: "leak", name: "Life Support Lab", color: "#5ad6c4", x: -9, z: -6 },
+export const TRAINING_STATIONS: { kind: ActivityKind; name: string; color: string; x: number; z: number; labelOffset?: [number, number, number] }[] = [
+  { kind: "leak", name: "Life Support Lab", color: "#5ad6c4", x: -9, z: -6, labelOffset: [2.6, 1.95, 1.1] },
   { kind: "power", name: "Power Lab", color: "#ffd166", x: 0, z: -10 },
   { kind: "radiation", name: "Radiation Safety Room", color: "#ff6b8b", x: 9, z: -6 },
   { kind: "greenhouse", name: "Greenhouse Lab", color: "#7bd96b", x: 10, z: 4 },
   { kind: "eva", name: "EVA Simulator", color: "#ff8a3d", x: 3, z: 10 },
   { kind: "wires", name: "Repair Bench", color: "#9bb7ff", x: -5, z: 10 },
   { kind: "command", name: "Command Room", color: "#9b8cff", x: -10, z: 3 },
+  { kind: "solar", name: "Solar Energy Lab", color: "#ffb347", x: 10, z: -1 },
 ];
 
 const TRAINING_OBSTACLES: Obstacle[] = [
@@ -32,17 +33,27 @@ function Station({ s, done }: { s: (typeof TRAINING_STATIONS)[number]; done: boo
   const screen = useRef<THREE.MeshStandardMaterial>(null);
   useFrame(({ clock }) => { if (screen.current) screen.current.emissiveIntensity = 0.6 + Math.sin(clock.elapsedTime * 2 + s.x) * 0.2; });
   const face = Math.atan2(-s.x, -s.z);
-  return (
-    <group position={[s.x, 0, s.z]} rotation-y={face}>
-      <mesh position={[0, 0.05, 0]} receiveShadow><cylinderGeometry args={[2.2, 2.2, 0.1, 32]} /><meshStandardMaterial color={s.color} roughness={0.6} /></mesh>
-      <mesh position={[0, 0.6, -0.6]} castShadow><boxGeometry args={[2.2, 1.1, 0.9]} /><meshStandardMaterial color="#e8ebef" /></mesh>
-      <mesh position={[0, 1.6, -0.9]} rotation-x={-0.2} castShadow><boxGeometry args={[1.8, 1.1, 0.12]} /><meshStandardMaterial color="#1c2a40" /></mesh>
-      <mesh position={[0, 1.6, -0.83]} rotation-x={-0.2}><planeGeometry args={[1.6, 0.9]} /><meshStandardMaterial ref={screen} color={s.color} emissive={s.color} emissiveIntensity={0.6} /></mesh>
-      <Html position={[0, 2.55, -0.6]} center occlude={false} zIndexRange={[15, 10]}>
+  const pos = s.labelOffset;
+  // drei Html can leave the first label empty when it mounts with the scene; mount labels one frame later.
+  const [ready, setReady] = useState(false);
+  useEffect(() => { const id = requestAnimationFrame(() => setReady(true)); return () => cancelAnimationFrame(id); }, []);
+  const label = ready && (
+      <Html position={pos ?? [0, 2.55, -0.6]} center occlude={false} zIndexRange={[15, 10]}>
         <div className="pointer-events-none select-none whitespace-nowrap rounded-full bg-card/85 px-3 py-1 font-display text-sm text-foreground">
           {done ? "✓ " : ""}{s.name}
         </div>
       </Html>
+  );
+  return (
+    <group position={[s.x, 0, s.z]}>
+    {pos && label}
+    <group rotation-y={face}>
+      <mesh position={[0, 0.05, 0]} receiveShadow><cylinderGeometry args={[2.2, 2.2, 0.1, 32]} /><meshStandardMaterial color={s.color} roughness={0.6} /></mesh>
+      <mesh position={[0, 0.6, -0.6]} castShadow><boxGeometry args={[2.2, 1.1, 0.9]} /><meshStandardMaterial color="#e8ebef" /></mesh>
+      <mesh position={[0, 1.6, -0.9]} rotation-x={-0.2} castShadow><boxGeometry args={[1.8, 1.1, 0.12]} /><meshStandardMaterial color="#1c2a40" /></mesh>
+      <mesh position={[0, 1.6, -0.83]} rotation-x={-0.2}><planeGeometry args={[1.6, 0.9]} /><meshStandardMaterial ref={screen} color={s.color} emissive={s.color} emissiveIntensity={0.6} /></mesh>
+      {!s.labelOffset && label}
+    </group>
     </group>
   );
 }
@@ -97,12 +108,14 @@ function Walker() {
 function Instructor() {
   const motion = useRef<AstroMotion>({ speed: 0, wave: 0, work: 0, alert: 0 });
   useFrame(({ clock }) => { if (Math.floor(clock.elapsedTime) % 7 === 0) motion.current.wave = 0.6; });
+  const [ready, setReady] = useState(false);
+  useEffect(() => { const id = requestAnimationFrame(() => setReady(true)); return () => cancelAnimationFrame(id); }, []);
   return (
     <group position={[0, 0, -3]} rotation-y={0}>
       <Astronaut accent="#9b8cff" motion={motion} />
-      <Html position={[0, 3, 0]} center distanceFactor={12}>
+      {ready && <Html position={[0, 3, 0]} center distanceFactor={12}>
         <div className="pointer-events-none whitespace-nowrap rounded-full bg-card/85 px-2 py-0.5 font-display text-xs text-foreground">Instructor Sam</div>
-      </Html>
+      </Html>}
     </group>
   );
 }
@@ -141,11 +154,6 @@ export function TrainingWorld() {
           )}
         </group>
       ))}
-      {/* hanging model moon */}
-      <mesh position={[0, 5, 0]}>
-        <sphereGeometry args={[1.2, 32, 32]} />
-        <meshStandardMaterial color="#cfcac0" roughness={1} />
-      </mesh>
       {TRAINING_STATIONS.map((s) => <Station key={s.kind} s={s} done={!!training[s.kind]} />)}
       <Instructor />
       <Walker />

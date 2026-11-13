@@ -1,5 +1,41 @@
 [
   {
+    "name": "NASA OSDR-766 – Space-Grown Tomato Experiment",
+    "links": [
+      {
+        "label": "NASA OSDR-766",
+        "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-766"
+      }
+    ],
+    "where": "Greenhouse activity – open the NASA Plant Lab card",
+    "effect": "Real NASA experiment record: the VEG-05 space-grown tomato study, its 90:10 and 50:50 red:blue LED treatments, mission dates and file counts are read from OSDR. Picking a treatment only sets the starting LED sliders; crop growth and scores are a game simulation.",
+    "kind": "NASA experiment record"
+  },
+  {
+    "name": "NASA RadLab – Radiation Dosimetry Database",
+    "links": [
+      {
+        "label": "NASA RadLab",
+        "url": "https://visualization.osdr.nasa.gov/radlab/gui/data-api/"
+      }
+    ],
+    "where": "Radiation Safety activity – NASA Radiation Lab chart",
+    "effect": "Archived measurements: real hourly LRO CRaTER dose-rate readings (µGy/hour) from January 2023 are charted. Shelter choices and safety scores are simulated for learning.",
+    "kind": "Archived measurements"
+  },
+  {
+    "name": "NASA JPL Horizons – Solar Position Data",
+    "links": [
+      {
+        "label": "NASA JPL Horizons",
+        "url": "https://ssd.jpl.nasa.gov/horizons/"
+      }
+    ],
+    "where": "Train on Earth → Solar Energy Lab",
+    "effect": "NASA calculation: Sun azimuth and elevation as seen from the Moon's Apollo 11 site are calculated by JPL Horizons. The solar panel power meter is a game calculation, not a NASA measurement.",
+    "kind": "NASA calculation"
+  },
+  {
     "name": "LRO LOLA",
     "links": [
       {
@@ -36,7 +72,7 @@
       }
     ],
     "where": "Expand **Inspect CRaTER detector replay** during the radiation activity",
-    "effect": "Step through four archive rows from July 2, 2009 and identify the detector with the highest recorded energy. Channels with zero pulse amplitude are displayed as \u201cNo pulse.\u201d The readings are detector energy in keV from a separate observation date.",
+    "effect": "Step through four archive rows from July 2, 2009 and identify the detector with the highest recorded energy. Channels with zero pulse amplitude are displayed as “No pulse.” The readings are detector energy in keV from a separate observation date.",
     "kind": "Archived data / asset"
   },
   {
@@ -60,7 +96,7 @@
       }
     ],
     "where": "Habitat panel and Water meter",
-    "effect": "The ISS 98% demonstration value sets the game\u2019s recovery fraction. Low base power stops recycling and the water reserve falls faster.",
+    "effect": "The ISS 98% demonstration value sets the game’s recovery fraction. Low base power stops recycling and the water reserve falls faster.",
     "kind": "Model informed by NASA references"
   },
   {
@@ -72,7 +108,7 @@
       }
     ],
     "where": "Greenhouse during the crop stress alert at H07:00",
-    "effect": "Restore red romaine lighting to approximately 200 \u00b5mol/m\u00b2/s. The light panel displays the experiment\u2019s 12:3:1 red, blue and green channel ratio. Water and nutrient ranges are game parameters.",
+    "effect": "Restore red romaine lighting to approximately 200 µmol/m²/s. The light panel displays the experiment’s 12:3:1 red, blue and green channel ratio. Water and nutrient ranges are game parameters.",
     "kind": "Model informed by NASA references"
   },
   {
@@ -96,7 +132,7 @@
       }
     ],
     "where": "Airlock suit check",
-    "effect": "Rotate NASA/Michael D. Carbajal\u2019s EMU model while checking oxygen, cooling and battery. The model and decoder ship with the game.",
+    "effect": "Rotate NASA/Michael D. Carbajal’s EMU model while checking oxygen, cooling and battery. The model and decoder ship with the game.",
     "kind": "Archived data / asset"
   },
   {
@@ -108,7 +144,7 @@
       }
     ],
     "where": "Airlock battery selection",
-    "effect": "The first Apollo 17 EVA\u2019s 7 h 12 min is the benchmark used to calculate the game's illustrative battery runtimes for a 390-minute sortie.",
+    "effect": "The first Apollo 17 EVA’s 7 h 12 min is the benchmark used to calculate the game's illustrative battery runtimes for a 390-minute sortie.",
     "kind": "Model informed by NASA references"
   },
   {
@@ -120,7 +156,7 @@
       }
     ],
     "where": "Walk or drive across grades and check base power",
-    "effect": "The coupling between terrain, rover travel and base power follows the operations described by LSOS. The code and operating parameters are MISSION27\u2019s simulation.",
+    "effect": "The coupling between terrain, rover travel and base power follows the operations described by LSOS. The code and operating parameters are MISSION27’s simulation.",
     "kind": "Design reference"
   },
   {

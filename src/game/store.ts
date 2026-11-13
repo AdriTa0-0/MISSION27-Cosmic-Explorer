@@ -31,7 +31,7 @@ export function repairMissionXp(m: Partial<Mission>): { awarded: Record<string, 
   return { awarded, xp: sumAwarded(awarded) };
 }
 export type Screen = "home" | "select" | "mars" | "training" | "lunar" | "report";
-export type ActivityKind = "leak" | "power" | "greenhouse" | "radiation" | "eva" | "wires" | "command" | "conflict" | "terrainSurvey" | "earthPhoto";
+export type ActivityKind = "leak" | "power" | "greenhouse" | "radiation" | "eva" | "wires" | "command" | "conflict" | "terrainSurvey" | "earthPhoto" | "solar";
 export type EmergencyId = "power" | "greenhouse" | "leak" | "radiation" | "cooling" | "conflict";
 export type ResKey = "life" | "power" | "safety" | "food" | "water";
 export type Resources = Record<ResKey, number>;

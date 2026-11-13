@@ -3,17 +3,21 @@ import {EarthCamera} from "./EarthCamera";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { audio } from "../audio";
+import { SolarGame } from "./SolarTraining";
 import { useGame, type Activity, type ActivityKind } from "../store";
 import { APOLLO_EVA_MINUTES, APOLLO_EVA_RECORD, DONKI_STORM, PROTON_PEAK_PFU, STORM_SCALE, VEGGIE_LED_RATIO, VEGGIE_LIGHT, solarTelemetry } from "../nasa/operations";
 import { TerrainSurveyGame } from "./FieldScience";
 import { SuitModel } from "./SuitModel";
 import { CraterReplay } from "./CraterReplay";
 import { GameButton } from "./Button";
+import { NasaPlantStudy, RadLabChart } from "./NasaLabCards";
 
 type Done = (r: Record<string, unknown>) => void;
 interface GameProps { context: Activity["context"]; done: Done }
 
 const META: Record<ActivityKind, { title: string; icon: string; brief: string; learned: string }> = {
+  solar: { title: "Solar Energy Training – NASA Horizons", icon: "☀", brief: "NASA JPL Horizons calculated where the Sun sits in the sky at a spot on the Moon. Tilt and turn the panel to face the Sun, then lock it in.",
+    learned: "A solar panel makes the most power when it faces the Sun straight on. The Moon turns slowly, so the Sun moves only about half a degree per hour there — panels still need re-aiming over a lunar day." },
   leak: { title: "Find the Leak", icon: "🫁", brief: "One module is losing pressure. Watch the gauges and close the valve on the leaking module.",
     learned: "Habitats hold air at about 101 kPa — like sea level on Earth. Isolating the leaking module protects everyone else. Read the data first, then act." },
   power: { title: "Route the Power", icon: "⚡", brief: "Solar output is limited. Share the available power. Life support needs at least 4 kW.",
@@ -72,6 +76,7 @@ export function ActivityModal({ activity, onFinish, onClose }: { activity: Activ
             {activity.kind === "wires" && <WiresGame {...props} />}
             {activity.kind === "command" && <CommandGame {...props} />}
             {activity.kind === "conflict" && <ConflictGame {...props} />}
+            {activity.kind === "solar" && <SolarGame done={done} />}
             {activity.kind === "terrainSurvey" && <TerrainSurveyGame done={() => done({})} />}
           </>
         )}
@@ -175,9 +180,9 @@ function PowerGame({ done, context }: GameProps) {
 /* ---------- Greenhouse ---------- */
 function GreenhouseGame({ done }: GameProps) {
   const bands = { water: [55, 73], light: [VEGGIE_LIGHT - 10, VEGGIE_LIGHT + 10], nutrients: [35, 53] };
-  const ledTotal = VEGGIE_LED_RATIO.reduce((sum, channel) => sum + channel, 0);
   const [v, setV] = useState({ water: 20, light: 270, nutrients: 80 });
   const [hold, setHold] = useState(0);
+  const [treat, setTreat] = useState<{ red: number; blue: number; label: string } | null>(null);
   const inBand = (k: keyof typeof v) => v[k] >= bands[k][0] && v[k] <= bands[k][1];
   const all = inBand("water") && inBand("light") && inBand("nutrients");
   useTicker((dt) => setHold((h) => (all ? h + dt : 0)));
@@ -186,6 +191,8 @@ function GreenhouseGame({ done }: GameProps) {
   const hint = (k: keyof typeof v) => (inBand(k) ? "Good" : v[k] < bands[k][0] ? "Too low" : "Too high");
   return (
     <div className="grid gap-4 sm:grid-cols-[1fr_140px]">
+      <div className="sm:col-span-2"><NasaPlantStudy applied={treat?.label ?? null} onApply={setTreat} /></div>
+      {treat && <p className="text-xs sm:col-span-2"><b>Simulated greenhouse (gameplay):</b> LEDs set to {treat.label}. This game result is a simulation, not a NASA finding.</p>}
       <p className="text-xs text-secondary sm:col-span-2">NASA OSDR · OSD-269 · Red romaine lettuce · target {VEGGIE_LIGHT} µmol/m²/s · LED mix {VEGGIE_LED_RATIO.join(":")} red / blue / green</p>
       <div className="space-y-4">
         {(["water", "light", "nutrients"] as const).map((k) => {
@@ -199,7 +206,7 @@ function GreenhouseGame({ done }: GameProps) {
           </div>;
         })}
         <div className="flex h-1.5 overflow-hidden rounded" aria-label="Veggie LED channel mix">
-          {VEGGIE_LED_RATIO.map((channel, i) => <span key={channel} style={{ width: `${channel / ledTotal * 100}%`, backgroundColor: ["#e96b75", "#628ffa", "#65bc74"][i] }} />)}
+          {(treat ? [treat.red, treat.blue, 0] : VEGGIE_LED_RATIO).map((channel, i, all) => <span key={i} style={{ width: `${channel / all.reduce((a, b) => a + b, 0) * 100}%`, backgroundColor: ["#e96b75", "#628ffa", "#65bc74"][i] }} />)}
         </div>
         <div className="h-2 overflow-hidden rounded-full bg-muted"><div className="h-full bg-success transition-all" style={{ width: `${Math.min(100, (hold / 1.5) * 100)}%` }} /></div>
       </div>
@@ -227,6 +234,7 @@ function RadiationGame({ context, done }: GameProps) {
   const ready = safe.every(Boolean) && secured;
   return (
     <div>
+      <RadLabChart />
       {context === "mission" && <div className="mb-3 rounded-xl bg-muted/60 p-3 font-mono text-xs">
         <a href={DONKI_STORM.url} target="_blank" rel="noreferrer" className="text-secondary underline">NASA CCMC DONKI · {DONKI_STORM.id}</a>
         <p className="mb-1 font-sans text-sm">Recorded event from 11 May 2024 — a replay, not a live warning.</p>
