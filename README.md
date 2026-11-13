@@ -24,7 +24,7 @@ MISSION27 incorporates NASA scientific datasets, archived observations, educatio
 
 Our documentation explains the 12 NASA resources and the AI tools used during development.
 
-**[View NASA Data & AI Credibility Documentation] (docs\CREDIT\MISSION27_NASA_Data_and_AI_Credibility.pdf)**
+**[View NASA Data & AI Credibility Documentation](docs\CREDIT\MISSION27_NASA_Data_and_AI_Credibility.pdf)**
 
 ## 💻 Technologies Used
 
