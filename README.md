@@ -41,9 +41,9 @@ Our documentation explains the 12 NASA resources and the AI tools used during de
 
 ## 🎬 Project Demonstration
 
-**YouTube:** Coming soon
+**YouTube:** https://youtu.be/P_t6YZ8Xojw
 
-**Google Drive:** Coming soon
+**Google Drive:** https://drive.google.com/file/d/1wNmsqmGdXDB0WIMAR9ELur8pWOyiWk5E/view?usp=sharing
 
 ## 👩‍🚀 Development Team
 
