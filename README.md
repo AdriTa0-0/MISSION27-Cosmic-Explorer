@@ -1,41 +1,58 @@
-# MISSION27 · Lunar Outpost
+# 🚀 MISSION27 – Cosmic Explorer
+### Train on Earth. Survive the Moon.
 
-This project was built with [Lovable](https://lovable.dev).
+**NASA Space Apps Challenge 2026 | CREW-M27**
 
-## Build with Lovable
+MISSION27 is an interactive 3D educational lunar exploration game designed for students aged 7–12. Players train as astronauts, explore the lunar surface, manage critical resources, respond to emergencies, and make engineering decisions throughout a simulated 27-hour Moon mission.
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+## 🌕 Key Features
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- Interactive 3D lunar exploration environment
+- Earth-based astronaut training
+- 27-hour lunar survival mission with 16 objectives
+- NASA scientific data integration
+- Lunar rover exploration and sample collection
+- Life support, radiation, power, food, and water management
+- Emergency response simulations
+- Crew communication and conflict resolution
+- Interactive Earth photography
+- Educational mission reports and scoring
 
-## Development
+## 🛰️ NASA Scientific Data & AI Transparency
 
-Use Node.js 22.12 or later and npm. Open a terminal in the extracted project folder, then run:
+MISSION27 incorporates NASA scientific datasets, archived observations, educational references, and 3D resources.
 
-```sh
-npm install
-npm run dev
-```
+Our documentation explains the 12 NASA resources and the AI tools used during development.
 
-Open the local URL printed by Vite. Choose **Start Mission**, use **WASD** to move and drag the scene to look around. See [NASA data in MISSION27](docs/NASA_DATA.md) for the in-game locations and data credits.
+**[View NASA Data & AI Credibility Documentation](docs/CREDIT/MISSION27_NASA_Data_and_AI_Credibility.pdf)**
 
-## Built with
+## 💻 Technologies Used
 
-- TanStack Start
-- TypeScript
-- React
+- React and TypeScript
+- Three.js / React Three Fiber
 - Tailwind CSS
+- Supabase
+- Lovable (AI-assisted development)
+- ChatGPT (planning and development assistance)
 
-## Collision and phone controls update
+## 🎮 Play MISSION27
 
-- Solid footprints now cover modules, tunnels, power equipment, crates, landing gear area, sample rocks, scattered rocks, marker poles and the rover. Movement uses small collision steps and slides along obstacles. Rover exits require clear ground.
-- Laptop: WASD or arrows to move, Shift to run, drag the scene to look, Enter to interact. Existing buttons and activities are unchanged.
-- Touch device: hold the directional pad to walk/drive, hold RUN with another finger to run/boost, drag the uncovered scene to look, and tap the interaction prompt. Touch controls appear on devices with a coarse pointer, including tablets. Landscape gives more room; portrait is also supported.
-- Controls clear on app backgrounding, interruption, and modal opening. Training has the same touch controls. Mission HUD adapts to narrow/short screens.
-- This ZIP remains the existing browser game source, not a Unity project. Use `npm install` then `npm run dev` as before; use `npm run build` for deployment. Phones must open the hosted URL (or a reachable LAN development server), not the ZIP directly.
+**Live Game:** https://mission27-cosmic-explorer.lovable.app/
 
-## Compact phone HUD
-On narrow screens and coarse-pointer devices up to 1100px wide, exploration displays only the mission clock, Tasks, Status, Menu and one destination/alert line. Tap Tasks for the full checklist and emergency instructions; Status opens the operations console and resource details. Landscape and portrait layouts reserve bottom corners for movement controls. Desktop retains the expanded HUD.
-Mobile rendering caps pixel density at 1, disables real-time shadows, reduces background stars and removes HUD blur/animation. Terrain data, collisions, tasks and mission rules are unchanged. Actual frame rates require testing on target phones.
+## 🎬 Project Demonstration
+
+**YouTube:** Coming soon
+
+**Google Drive:** Coming soon
+
+## 👩‍🚀 Development Team
+
+**Team:** CREW-M27
+
+**Location:** Chattogram, Bangladesh
+
+**Challenge:** Build a Junior Astronaut Mission Trainer
+
+## 📌 Attribution
+
+MISSION27 is an independent educational project developed for the NASA Space Apps Challenge 2026. It is not affiliated with or endorsed by NASA.
